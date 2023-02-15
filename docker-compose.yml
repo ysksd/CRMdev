@@ -5,6 +5,8 @@ services:
     build:
       context: .
       dockerfile: ./docker/app/Dockerfile
+    ports:
+      - 5173:5173
     volumes:
       - ./src/:/app
   web:
@@ -24,10 +26,10 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_DATABASE: database
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       TZ: 'Asia/Tokyo'
     volumes:
       - mysql-volume:/var/lib/mysql
