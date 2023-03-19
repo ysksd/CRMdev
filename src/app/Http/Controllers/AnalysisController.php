@@ -11,8 +11,8 @@ class AnalysisController extends Controller
 {
     public function index()
     {
-        $startDate = '2022-08-01';
-        $endDate = '2022-08-31';
+        $startDate = '2022-09-01';
+        $endDate = '2023-08-31';
 
         return Inertia::render('Analysis');
     }
